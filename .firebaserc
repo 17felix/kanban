@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "kanban-8e282": {
+      "hosting": {
+        "kanban": [
+          "kanban-8e282"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "kanban-8e282"
+  }
+}
