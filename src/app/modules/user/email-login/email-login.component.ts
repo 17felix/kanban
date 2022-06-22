@@ -9,11 +9,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./email-login.component.scss']
 })
 export class EmailLoginComponent implements OnInit {
-  form: FormGroup;
+  form!: FormGroup;
 
   type: 'login' | 'signup' | 'reset' = 'signup';
   loading = false;
-  serverMessage: string;
+  serverMessage!: string;
 
   constructor(private afAuth: AngularFireAuth, private fb: FormBuilder) { }
 
@@ -65,7 +65,7 @@ export class EmailLoginComponent implements OnInit {
     if (this.type !== 'signup') {
       return true;
     } else {
-      return this.password.value === this.passwordConfirm.value;
+      return this.password!.value === this.passwordConfirm!.value;
     }
   }
 

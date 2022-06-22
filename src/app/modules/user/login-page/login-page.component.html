@@ -3,14 +3,17 @@
   <div *ngIf="!(afAuth.authState | async)">
     <h1>Login</h1>
   
-    <button mat-raised-button appGoogleSignin class="btn">
-      <img src="/assets/google-logo.svg" class="i-google"/> Login with Google
-    </button>
+    <div class="container">
+      <button mat-raised-button appGoogleSignin class="btn">
+        <img src="/assets/google-logo.svg" class="i-google"/> Login with Google
+      </button>
+    </div>
+
+    <div class="conatainer">
+      <h5>OR</h5>
+      <app-email-login></app-email-login>
+    </div>
   </div>
-
-  <h5>OR</h5>
-
-  <app-email-login></app-email-login>
   
   <div *ngIf="afAuth.authState | async as user" class="logout">
     <p>
