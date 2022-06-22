@@ -6,14 +6,19 @@ import { AuthGuard } from './modules/user/auth.guard';
 const routes: Routes = [
   { 
     path: '', 
-    component: HomePageComponent,
-    canActivate: [AuthGuard]
+    component: HomePageComponent
   },
   {
     path: 'login',
     loadChildren: () => import('./modules/user/user.module').then(m => 
     m.UserModule)
-  }
+  },
+  {
+    path: 'kanban',
+    loadChildren: () => import('./modules/kanban/kanban.module').then(m => 
+    m.KanbanModule),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({
