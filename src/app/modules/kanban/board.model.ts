@@ -1,6 +1,6 @@
 export interface Board {
   id?: string;
-  tritle?: string;
+  title?: string;
   priority?: number;
   tasks?: Task[];
 }
