@@ -5,6 +5,7 @@ import { Board } from '../board.model';
 import { Task } from '../board.model';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskDialogComponent } from '../dialogs/task-dialog.component';
+import { DeleteButtonComponent } from '../../shared/delete-button/delete-button.component';
 
 @Component({
   selector: 'app-board',
@@ -15,11 +16,11 @@ export class BoardComponent {
   @Input() board!: Board;
 
   constructor(private boardService: BoardService, private dialog: MatDialog) {}
+
   taskDrop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.board.tasks!, event.previousIndex, event.currentIndex);
     this.boardService.updateTasks(this.board.id!, this.board.tasks!);
   }
-
 
   openDialog(task?: Task, idx?: number): void {
     const newTask = { label: 'purple' };
@@ -44,6 +45,10 @@ export class BoardComponent {
         }
       }
     });
+  }
+
+  handleDelete() {
+    this.boardService.deleteBoard(this.board.id!);
   }
   
 }
