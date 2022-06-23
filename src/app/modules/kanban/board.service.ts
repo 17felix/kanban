@@ -16,9 +16,10 @@ export class BoardService {
   // create a new board for the current user 
   async creatBoard(data: Board) {
     const user = await this.afAuth.currentUser;
+    console.log(3);
     return this.db.collection('boards').add({
       ...data,
-      uid: user?.uid,                                       // ?
+      uid: user!.uid,                                       // ?
       tasks: [{ description: 'Hello!', label: 'yellow' }]
     });
   }
@@ -37,7 +38,7 @@ export class BoardService {
       .update({ tasks });
   }
 
-  removeTasks(boardId: string, task: Task) {
+  removeTask(boardId: string, task: Task) {
     return this.db
       .collection('boards')
       .doc(boardId)
