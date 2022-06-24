@@ -4,20 +4,25 @@ import { HomePageComponent } from './modules/shared/home-page/home-page.componen
 import { AuthGuard } from './modules/user/auth.guard';
 
 const routes: Routes = [
-  { 
-    path: '', 
+  {
+    path: '',
     component: HomePageComponent
   },
   {
     path: 'login',
-    loadChildren: () => import('./modules/user/user.module').then(m => 
+    loadChildren: () => import('./modules/user/user.module').then(m =>
     m.UserModule)
   },
   {
     path: 'kanban',
-    loadChildren: () => import('./modules/kanban/kanban.module').then(m => 
+    loadChildren: () => import('./modules/kanban/kanban.module').then(m =>
     m.KanbanModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'customers',
+    loadChildren: () => import('./modules/customers/customers.module').then(m =>
+    m.CustomersModule),
   },
 ];
 
