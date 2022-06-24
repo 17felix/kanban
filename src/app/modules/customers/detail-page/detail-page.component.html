@@ -2,7 +2,7 @@
 
 
 <mat-card>
-        <p>This content is server rendered with Angular Universal, NestJS, and Google Cloud Run.</p>
+        <p>This content is server rendered with Angular Universal, NestJS, and Google Cloud Run.</p>  
 
         Paste URL: <pre>https://firestarter.fireship.io/customers/{{customerId}}</pre>
 
@@ -11,7 +11,7 @@
         <button mat-raised-button routerLink="/customers">BACK</button>
 </mat-card>
 
-
+    
 
 <mat-card *ngIf="customer | async as cust">
   <mat-card-header>
